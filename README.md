@@ -44,14 +44,11 @@ git clone https://github.com/nikoyasam/research-paper-synthesizer.git
 cd research-paper-synthesizer
 
 ### 2. Install dependencies
-```bash
 pip install -r requirements.txt
 
 ### 3. Install and Run Ollama
-```bash
 ollama pull llama3.1
 ollama serve
 
 ### 4. Run the Pipeline
-```bash
 python main.py
