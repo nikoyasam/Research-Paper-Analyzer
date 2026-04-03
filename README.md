@@ -18,6 +18,27 @@ Unlike standard RAG (Retrieval-Augmented Generation) applications, this system u
 * **Data Validation:** Pydantic
 * **Document Processing:** PyPDFLoader
 
+## 🚀 Getting Started
+
+## 1. Clone the Repository
+```bash
+git clone https://github.com/nikoyasam/research-paper-synthesizer.git
+cd research-paper-synthesizer
+
+## 2. Set Up a Virtual Environment (Recommended)
+```bash
+python -m venv venv
+venv\Scripts\activate - windows
+source venv/bin/activate - macOS
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+
+### 4. Run the Pipeline
+```bash
+python main.py
+
 ## 📂 Project Architecture
 
 ```text
@@ -34,24 +55,5 @@ paper_reviewer/
     └── raw_papers/       # Drop your downloaded PDF files in here
 
 
-## 🚀 Getting Started
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/nikoyasam/research-paper-synthesizer.git
-cd research-paper-synthesizer
-
-### 2. Set Up a Virtual Environment (Recommended)
-```bash
-python -m venv venv
-venv\Scripts\activate - windows
-source venv/bin/activate - macOS
-
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-
-### 4. Run the Pipeline
-```bash
-python main.py
 
