@@ -29,3 +29,33 @@ paper_reviewer/
 └── data/
     └── raw_papers/       # Drop your downloaded PDF files in here
 
+## 🚀 Getting Started
+
+```bash
+# 1. Clone the Repository
+git clone https://github.com/nikoyasam/research-paper-synthesizer.git
+cd research-paper-synthesizer
+
+# 2. Set Up a Virtual Environment (Recommended)
+# Create virtual environment
+python -m venv venv
+
+# Activate environment
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+# 3. Install Dependencies
+pip install -r requirements.txt
+
+# 4. Install and Run Ollama
+# Pull Llama 3.1 model
+ollama pull llama3.1
+
+# Start the Ollama server
+ollama serve
+
+# 5. Run the Pipeline
+python main.py
+
