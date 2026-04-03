@@ -1,57 +1,57 @@
-# Research-Paper-Analyzer
-
-# 📄 Agentic Research Paper Synthesizer
+# 📄 Agentic Research Paper Synthesizer (Local AI Edition)
 
 An autonomous, multi-agent workflow built with **LangGraph** and **LangChain** that dynamically extracts, evaluates, and structures data from complex academic PDFs. 
 
-Unlike standard RAG (Retrieval-Augmented Generation) applications, this system utilizes an "Extractor-Critic" agentic loop. It evaluates its own extractions against user instructions and iteratively corrects its mistakes before returning the final JSON output, ensuring high-fidelity data extraction across any scientific domain.
+Unlike standard RAG (Retrieval-Augmented Generation) applications, this system utilizes an "Extractor-Critic" agentic loop. It evaluates its own extractions against user instructions and iteratively corrects its mistakes before returning the final JSON output. 
+
+**This project is configured to run 100% locally and offline using Ollama, ensuring zero API costs and complete data privacy for sensitive academic or corporate documents.**
 
 ## ✨ Key Features
-* **Domain-Agnostic Extraction:** Pass in dynamic instructions at runtime to extract AI architectures, medical trial cohorts, or financial metrics without changing the underlying code.
+* **Domain-Agnostic Extraction:** Pass in dynamic instructions at runtime to extract methodologies, architectures, or evaluation metrics without changing the underlying code.
 * **Agentic Review Loop:** A built-in Critic Node validates the extracted data against the Pydantic schema and routes the workflow back to the Extractor if required data is missing.
 * **Structured Output Validation:** Enforces strict JSON schemas using Pydantic, ensuring the output is ready for downstream database insertion or frontend display.
-* **Automated PDF Parsing:** Seamlessly ingests and chunks multi-page academic PDFs.
+* **Local & Secure Inference:** Uses Meta's Llama 3.1 running locally via Ollama, removing reliance on paid APIs and preventing proprietary data leaks.
 
 ## 🛠️ Tech Stack
 * **Framework:** LangGraph, LangChain
-* **LLM:** OpenAI (`gpt-4o-mini`)
+* **LLM Engine:** Ollama (`llama3.1`)
 * **Data Validation:** Pydantic
 * **Document Processing:** PyPDFLoader
 
 ## 📂 Project Architecture
 
 ```text
-research-paper-synthesizer/
-├── src/
-│   ├── state.py          # Defines Pydantic schemas and LangGraph state variables
-│   ├── nodes.py          # Contains the Extractor and Critic LLM logic
-│   ├── graph.py          # Wires the nodes into a cyclic state machine
-│   └── document_utils.py # Handles PDF ingestion and text extraction
-├── data/
-│   └── raw_papers/       # Directory for target PDF files
-├── main.py               # Orchestration engine and execution entry point
-├── requirements.txt      # Project dependencies
-└── .env                  # Environment variables (API Keys)
+paper_reviewer/
+├── requirements.txt      # List of libraries to install (pip install -r requirements.txt)
+├── main.py               # The script you run in the terminal to start the whole app
+├── src/                  # This folder holds all the puzzle pieces
+│   ├── __init__.py       # Empty file (tells Python this is a module)
+│   ├── state.py          # Defines the Pydantic models (UniversalPaperExtraction, AgentState)
+│   ├── nodes.py          # BOTH extraction_node() and critic_node() live in here!
+│   ├── graph.py          # Wires the nodes together into a loop (build_graph)
+│   └── document_utils.py # Contains the load_and_parse_pdf() function
+└── data/
+    └── raw_papers/       # Drop your downloaded PDF files in here
 
 
-🚀 Getting Started
-1. Clone the repository
+## 🚀 Getting Started
 
-git clone [https://github.com/nikoyasam/research-paper-synthesizer.git](https://github.com/nikoyasam/research-paper-synthesizer.git)
+### 1. Clone the Repository
+```bash
+git clone https://github.com/nikoyasam/research-paper-synthesizer.git
 cd research-paper-synthesizer
 
-2. Set up a virtual environment (Recommended)
+### 2. Set Up a Virtual Environment (Recommended)
+```bash
 python -m venv venv
-# On Windows use: venv\Scripts\activate
-# On macOS/Linux use: source venv/bin/activate
+venv\Scripts\activate - windows
+source venv/bin/activate - macOS
 
-3. Install dependencies
+### 3. Install Dependencies
+```bash
 pip install -r requirements.txt
 
-4. Configure Environment Variables
-Create a .env file in the root directory and add your OpenAI API key:
-OPENAI_API_KEY=your_openai_api_key_here
-
-5. Run the Pipeline
-Place a research paper (e.g., sample_paper.pdf) into the data/raw_papers/ directory. Update the file path and specific extraction instructions in main.py, then run:
+### 4. Run the Pipeline
+```bash
 python main.py
+
