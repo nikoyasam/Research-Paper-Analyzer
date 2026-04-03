@@ -12,20 +12,6 @@ Unlike standard RAG (Retrieval-Augmented Generation) applications, this system u
 * **Structured Output Validation:** Enforces strict JSON schemas using Pydantic, ensuring the output is ready for downstream database insertion or frontend display.
 * **Local & Secure Inference:** Uses Meta's Llama 3.1 running locally via Ollama, removing reliance on paid APIs and preventing proprietary data leaks.
 
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/nikoyasam/research-paper-synthesizer.git
-cd research-paper-synthesizer
-```bash
-
-
-## 🛠️ Tech Stack
-* **Framework:** LangGraph, LangChain
-* **LLM Engine:** Ollama (`llama3.1`)
-* **Data Validation:** Pydantic
-* **Document Processing:** PyPDFLoader
 
 
 ## 📂 Project Architecture
@@ -43,21 +29,3 @@ paper_reviewer/
 └── data/
     └── raw_papers/       # Drop your downloaded PDF files in here
 
-
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/nikoyasam/research-paper-synthesizer.git
-cd research-paper-synthesizer
-
-### 2. Install dependencies
-pip install -r requirements.txt
-
-### 3. Install and Run Ollama
-ollama pull llama3.1
-ollama serve
-
-### 4. Run the Pipeline
-python main.py
