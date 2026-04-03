@@ -18,26 +18,6 @@ Unlike standard RAG (Retrieval-Augmented Generation) applications, this system u
 * **Data Validation:** Pydantic
 * **Document Processing:** PyPDFLoader
 
-## 🚀 Getting Started
-
-## 1. Clone the Repository
-```bash
-git clone https://github.com/nikoyasam/research-paper-synthesizer.git
-cd research-paper-synthesizer
-
-## 2. Set Up a Virtual Environment (Recommended)
-```bash
-python -m venv venv
-venv\Scripts\activate - windows
-source venv/bin/activate - macOS
-
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-
-### 4. Run the Pipeline
-```bash
-python main.py
 
 ## 📂 Project Architecture
 
@@ -56,4 +36,22 @@ paper_reviewer/
 
 
 
+## 🚀 Getting Started
 
+### 1. Clone the Repository
+```bash
+git clone https://github.com/nikoyasam/research-paper-synthesizer.git
+cd research-paper-synthesizer
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+
+### 3. Install and Run Ollama
+```bash
+ollama pull llama3.1
+ollama serve
+
+### 4. Run the Pipeline
+```bash
+python main.py
